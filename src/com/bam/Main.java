@@ -12,7 +12,7 @@ import com.bam.task.task3.circle.Circle;
  *
  */
 public class Main {
-//HelloTestdd
+//HelloTestddsdsd
 	public static void main(String[] args) throws CloneNotSupportedException {
 		// System.out.println(new SolutionStudent(20, 1990, 2));
 		// System.out.println(new SolutionCustomer(40).toString());
