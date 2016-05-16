@@ -1,0 +1,6 @@
+#Folder
+.settings/
+bin/
+#Files
+.classpath
+.project
