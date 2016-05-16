@@ -12,7 +12,7 @@ import com.bam.task.task3.circle.Circle;
  *
  */
 public class Main {
-	//SomeCode
+
 	public static void main(String[] args) throws CloneNotSupportedException {
 		// System.out.println(new SolutionStudent(20, 1990, 2));
 		// System.out.println(new SolutionCustomer(40).toString());
@@ -35,6 +35,6 @@ public class Main {
 		// System.out.println(new com.bam.task.task3.triangle.Solution());
 		// System.out.println(new com.bam.task.task3.quadrangle.Solution());
 		// System.out.println(new com.bam.task.task3.circle.Solution());
-		System.out.println(new com.bam.task.task3.straight.Solution());		
+		//System.out.println(new com.bam.task.task3.straight.Solution());		
 	}
 }
