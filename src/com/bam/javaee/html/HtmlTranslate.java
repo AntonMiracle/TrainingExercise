@@ -7,11 +7,14 @@ import java.io.IOException;
 
 public class HtmlTranslate {
 
-	public static void main(String[] args) {
-		System.out.println(traslate("D:\\Games\\ProgrammingJava\\WorkSpace\\TrainingExercise\\bin\\com\\bam\\javaee\\html\\HomePage.html"));
-	}
+//	public static void main(String[] args) {
+//		String htmlText = translate(
+//				"D:\\Games\\ProgrammingJava\\WorkSpace\\TrainingExercise\\bin\\com\\bam\\javaee\\html\\HomePage.html");
+//		String cssText = translate("d:\\Games\\ProgrammingJava\\WorkSpace\\WebPro\\src\\servlets\\source\\style.css");
+//		System.out.println(addStyleToHtml(htmlText, cssText));
+//	}
 
-	public static String traslate(String fileFullName) {
+	public static String translate(String fileFullName) {
 		FileReader file = null;
 		String text = "";
 		try {
@@ -24,5 +27,29 @@ public class HtmlTranslate {
 			System.out.println(ex);
 		}
 		return text;
+	}
+
+	public static String addStyleToHtml(String htmlText, String cssText) {
+		String firstPart = "";
+		String secondPart = "";
+		boolean isFirstPart = true;
+		String newCssText = "<style>\n" + cssText + "\n</style>";
+		for (int i = 0; i < htmlText.length() - 7; i++) {
+			if (isFirstPart) {
+				firstPart += htmlText.charAt(i);
+			} else {
+				secondPart += htmlText.charAt(i);
+			}
+			String check = "";
+			if (isFirstPart && (htmlText.charAt(i) == ' ' || htmlText.charAt(i) == '\n')) {
+				for (int j = 1; j <= 7; j++) {
+					check += htmlText.charAt(i + j);
+				}
+				if (check.equals("</head>")) {
+					isFirstPart = false;
+				}
+			}
+		}
+		return firstPart + "\n" + newCssText + "\n" + secondPart;
 	}
 }
