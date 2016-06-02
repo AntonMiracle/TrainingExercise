@@ -34,6 +34,6 @@ public class Main {
 		// System.out.println(new com.bam.task.task3.quadrangle.Solution());
 		// System.out.println(new com.bam.task.task3.circle.Solution());
 		//System.out.println(new com.bam.task.task3.straight.Solution());			
-		ddddddddd
+		
 	}
 }
