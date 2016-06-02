@@ -3,8 +3,6 @@
  */
 package com.bam;
 
-import com.bam.task.task3.circle.Circle;
-
 /**
  * @author Bondarenko Anton Michailovich
  * @version 2.0
@@ -12,8 +10,8 @@ import com.bam.task.task3.circle.Circle;
  *
  */
 public class Main {
-//HelloTestddsdsdsdsdsdsdadads
-	public static void main(String[] args) throws CloneNotSupportedException {
+//
+	public final static void main(String... args) throws CloneNotSupportedException {
 		// System.out.println(new SolutionStudent(20, 1990, 2));
 		// System.out.println(new SolutionCustomer(40).toString());
 		// System.out.println(new SolutionPatient(10));
@@ -35,6 +33,7 @@ public class Main {
 		// System.out.println(new com.bam.task.task3.triangle.Solution());
 		// System.out.println(new com.bam.task.task3.quadrangle.Solution());
 		// System.out.println(new com.bam.task.task3.circle.Solution());
-		//System.out.println(new com.bam.task.task3.straight.Solution());		
+		//System.out.println(new com.bam.task.task3.straight.Solution());			
+		ddddddddd
 	}
 }

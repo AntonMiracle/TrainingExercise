@@ -1,7 +1,5 @@
 package com.bam.javaee.html;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -10,7 +8,7 @@ public class HtmlTranslate {
 //	public static void main(String[] args) {
 //		String htmlText = translate(
 //				"D:\\Games\\ProgrammingJava\\WorkSpace\\TrainingExercise\\bin\\com\\bam\\javaee\\html\\HomePage.html");
-//		String cssText = translate("d:\\Games\\ProgrammingJava\\WorkSpace\\WebPro\\src\\servlets\\source\\style.css");
+//		String cssText = translate("D:\\Games\\ProgrammingJava\\WorkSpace\\TrainingExercise\\bin\\com\\bam\\javaee\\html\\source\\style.css");
 //		System.out.println(addStyleToHtml(htmlText, cssText));
 //	}
 

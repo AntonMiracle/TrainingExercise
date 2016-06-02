@@ -30,7 +30,7 @@ public class Runner {
 		System.out.println(	p.toTotalMonths());		
 		System.out.println(p.getDays());
 		System.out.println(days);
-
+		
 	}
 
 }
