@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 
  * @author Bondarenko Anton Michailovich
- * @version 1.3
+ * @version 1.5
  *
  */
 public class Brackets {
@@ -28,11 +28,11 @@ public class Brackets {
 	}
 
 	/**
-	 * Constructor Create bracket sequence with specified numbers of pairs. If
-	 * pairs are more than ten, system automation change pairs numbers on 7.
+	 * Constructor Create bracket sequence with specified number of pairs. If
+	 * pairs are more than ten, system automation change pairs number on 7.
 	 * 
 	 * @param numberOfPairs
-	 *        numbers of pairs.
+	 *        number of pairs.
 	 */
 	public Brackets(int numberOfPairs) {
 		if (numberOfPairs <= 10) {
@@ -49,7 +49,7 @@ public class Brackets {
 	/**
 	 * Method add one pair of bracket sequence '()' to the exist bracket
 	 * sequence variation. Create additional, correct bracket sequence
-	 * variations and add to the collection of bracket variations.
+	 * variations and add there to the collection of bracket variations.
 	 * 
 	 * @param bracket
 	 *        exist bracket sequence variation.
@@ -66,7 +66,8 @@ public class Brackets {
 	}
 
 	/**
-	 * Create correct bracket sequence variations from one to number of pairs
+	 * Create correct bracket sequence variations from one to maximum number of
+	 * pairs
 	 * 
 	 * @param pair
 	 *        current pair on which create correct bracket sequance variations
@@ -92,11 +93,11 @@ public class Brackets {
 	 * Insert word into another word.
 	 * 
 	 * @param insertTo
-	 *        where want to insert the word
+	 *        word where want to insert the another word
 	 * @param word
-	 *        which need to insert
+	 *        word which need to insert
 	 * @param afterIndex
-	 *        char index after which need to insert word
+	 *        index of char after which need to insert another word
 	 * @return String new word
 	 */
 	private String insertWord(String insertTo, String word, int afterIndex) {
@@ -150,27 +151,48 @@ public class Brackets {
 		return String.format("%s%s%s", title, result, end);
 	}
 
-	/** Getter */
+	/**
+	 * Open bracket
+	 * 
+	 * @return String
+	 */
 	public String getOPEN() {
 		return OPEN;
 	}
 
-	/** Getter */
+	/**
+	 * Close bracket
+	 * 
+	 * @return String
+	 */
 	public String getCLOSE() {
 		return CLOSE;
 	}
 
-	/** Getter */
+	/**
+	 * Collection of correct bracket sequence variations
+	 * 
+	 * @return Set<String>
+	 */
 	public Set<String> getSet() {
 		return set;
 	}
 
-	/** Getter */
+	/**
+	 * Number of maximum pairs of bracket siquence variations
+	 * 
+	 * @return int
+	 */
 	public int getNumberPairs() {
 		return numberPairs;
 	}
 
-	/** Getter */
+	/**
+	 * System protection. Which do not let user input data which can crush or
+	 * slow system
+	 * 
+	 * @return boolean
+	 */
 	public boolean isSystemPro() {
 		return systemPro;
 	}
