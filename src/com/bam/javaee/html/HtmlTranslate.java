@@ -5,12 +5,13 @@ import java.io.IOException;
 
 public class HtmlTranslate {
 
-//	public static void main(String[] args) {
-//		String htmlText = translate(
-//				"D:\\Games\\ProgrammingJava\\WorkSpace\\TrainingExercise\\bin\\com\\bam\\javaee\\html\\HomePage.html");
+	public static void main(String[] args) {
+		String htmlText = translate(
+				"D:\\Games\\ProgrammingJava\\WorkSpace\\TrainingExercise\\src\\com\\bam\\javaee\\html\\HomePage.html");
 //		String cssText = translate("D:\\Games\\ProgrammingJava\\WorkSpace\\TrainingExercise\\bin\\com\\bam\\javaee\\html\\source\\style.css");
-//		System.out.println(addStyleToHtml(htmlText, cssText));
-//	}
+		String newText = "<p>Hello</p>";
+		System.out.println(addintoBody(htmlText, newText));
+	}
 
 	public static String translate(String fileFullName) {
 		FileReader file = null;
@@ -49,5 +50,30 @@ public class HtmlTranslate {
 			}
 		}
 		return firstPart + "\n" + newCssText + "\n" + secondPart;
+	}
+	
+	public static String addintoBody(String htmlText, String additionalHtmlCode){
+		String newHtmlText = "\n";
+		boolean isCodeAdded = false;
+		
+		for(int i = 0; i < htmlText.length(); i++)
+		{
+			newHtmlText += htmlText.charAt(i);
+			if(!isCodeAdded && (htmlText.charAt(i) == ' ' || htmlText.charAt(i) == '\n'))
+			{
+				String check = "";
+				for(int j = 1; j <= 6; j++)
+				{
+					check += htmlText.charAt(i + j);
+				}
+				if(check.equals("<body>"))
+				{
+					newHtmlText += "\n<body>\n" + additionalHtmlCode + "\n";
+					i += 6;
+					isCodeAdded = true;
+				}
+			}
+		}
+		return newHtmlText;
 	}
 }
