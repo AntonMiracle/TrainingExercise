@@ -4,6 +4,7 @@
 package com.implemica;
 
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -28,7 +29,7 @@ public class Brackets {
 
 	/**
 	 * Constructor Create bracket sequence with specified numbers of pairs. If
-	 * pairs are more than ten, system automation change pairs number on 7.
+	 * pairs are more than ten, system automation change pairs numbers on 7.
 	 * 
 	 * @param numberOfPairs
 	 *        numbers of pairs.
@@ -48,7 +49,7 @@ public class Brackets {
 	/**
 	 * Method add one pair of bracket sequence '()' to the exist bracket
 	 * sequence variation. Create additional, correct bracket sequence
-	 * variations and add to the collection set.
+	 * variations and add to the collection of bracket variations.
 	 * 
 	 * @param bracket
 	 *        exist bracket sequence variation.
@@ -102,6 +103,32 @@ public class Brackets {
 		String before = insertTo.substring(0, afterIndex + 1);
 		String after = insertTo.substring(afterIndex + 1, insertTo.length());
 		return before + word + after;
+	}
+
+	/**
+	 * Create bracket sequence with user input number of pairs. If input data
+	 * not a number, system automation give additional try while input data is
+	 * not number
+	 */
+	public static void run() {
+		Scanner scn = new Scanner(System.in);
+		boolean inputPro = true;
+		int number = 0;
+		String title = "----- Enter number of bracket pairs -----";
+		String error = "----- You enter not number -----";
+		do {
+			System.out.println(title);
+			String text = scn.nextLine();
+			try {
+				number = Integer.parseInt(text.trim());
+				inputPro = false;
+			} catch (NumberFormatException ex) {
+				System.out.println(error);
+			} finally {
+				scn.close();
+			}
+		} while (inputPro);
+		System.out.println(new Brackets(number));
 	}
 
 	/* @see java.lang.Object#toString() */

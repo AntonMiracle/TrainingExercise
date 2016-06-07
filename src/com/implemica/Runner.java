@@ -3,9 +3,7 @@
  */
 package com.implemica;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.Scanner;
 
 /**
  * @author Bondarenko Anton Michailovich
@@ -18,10 +16,12 @@ public class Runner {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
 		/**
 		 * Solution A. Count correct bracket(s) sequence
 		 */
-		System.out.println(new Brackets(11));
+		Brackets.run();
+		
 
 	}
 
