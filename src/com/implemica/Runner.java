@@ -16,12 +16,15 @@ public class Runner {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Scanner scn = new Scanner(System.in);
+
 		/**
 		 * Solution A. Count correct bracket(s) sequence
 		 */
-		Brackets.run();
-		
+		Brackets.solution();
+		/**
+		 * Solutin C. Count digits of number 100!(100 factorial)
+		 */
+		Factorial.solution();
 
 	}
 
