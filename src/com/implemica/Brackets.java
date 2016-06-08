@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 
  * @author Bondarenko Anton Michailovich
- * @version 1.5
+ * @version 1.8
  *
  */
 public class Brackets {
@@ -19,29 +19,26 @@ public class Brackets {
 	private Set<String>		set;
 	private int				numberPairs;
 	private boolean			systemPro;
+	private String			userData;
 
 	/**
-	 * Constructor Create one pair of bracket sequence.
+	 * Constructor create one pair of bracket sequence.
 	 */
 	public Brackets() {
 		this(1);
 	}
 
 	/**
-	 * Constructor Create bracket sequence with specified number of pairs. If
+	 * Constructor create bracket sequence with specified number of pairs. If
 	 * pairs are more than ten, system automation change pairs number on 7.
 	 * 
 	 * @param numberOfPairs
 	 *        number of pairs.
 	 */
 	public Brackets(int numberOfPairs) {
-		if (numberOfPairs <= 10) {
-			this.numberPairs = numberOfPairs;
-			this.systemPro = false;
-		} else {
-			this.numberPairs = 7;
-			this.systemPro = true;
-		}
+		this.userData = new Integer(numberOfPairs).toString();
+		this.numberPairs = numberOfPairs <= 10 ? numberOfPairs : 10;
+		this.systemPro = numberOfPairs <= 10 ? false : true;
 		this.set = new HashSet<String>();
 		makeBrackets(1);
 	}
@@ -107,11 +104,11 @@ public class Brackets {
 	}
 
 	/**
-	 * Create bracket sequence with user input number of pairs. If input data
-	 * not a number, system automation give additional try while input data is
-	 * not number
+	 * Solution of task #1 which must be solved. Create bracket sequence with
+	 * user input number of pairs. If input data not a number, system automation
+	 * give additional try while input data is not number
 	 */
-	public static void run() {
+	public static void solution() {
 		Scanner scn = new Scanner(System.in);
 		boolean inputPro = true;
 		int number = 0;
@@ -125,11 +122,29 @@ public class Brackets {
 				inputPro = false;
 			} catch (NumberFormatException ex) {
 				System.out.println(error);
-			} finally {
-				scn.close();
 			}
 		} while (inputPro);
-		System.out.println(new Brackets(number));
+		System.out.println(new Brackets(number).countUniqueVariation());
+		scn.close();
+	}
+
+	/**
+	 * Count unique variations of bracket sequence
+	 * 
+	 * @return String number of unique variations
+	 */
+	private String countUniqueVariation() {
+		int countUniquevariations = 0;
+		for (String variation : getSet()) {
+			countUniquevariations += variation.length() == getNumberPairs() * 2 ? 1 : 0;
+		}
+		String systemPro = isSystemPro()
+				? String.format("\nNumbers of pairs more than 10 (user set : %s). System automation set %s pairs",
+						getUserData(), getNumberPairs())
+				: "";
+		String result = String.format("\nCorrect bracket sequence which consist of %s pairs. Has %s unique variations",
+				new Integer(getNumberPairs()).toString(), new Integer(countUniquevariations).toString());
+		return systemPro + result;
 	}
 
 	/* @see java.lang.Object#toString() */
@@ -145,8 +160,8 @@ public class Brackets {
 			}
 		}
 		end = isSystemPro()
-				? String.format("\nNumbers of pairs more than 10 (user set : %s). System automation set 7 pairs",
-						getNumberPairs())
+				? String.format("\nNumbers of pairs more than 10 (user set : %s). System automation set %s pairs",
+						getUserData(), getNumberPairs())
 				: "";
 		return String.format("%s%s%s", title, result, end);
 	}
@@ -195,6 +210,11 @@ public class Brackets {
 	 */
 	public boolean isSystemPro() {
 		return systemPro;
+	}
+
+	/** Getter */
+	public String getUserData() {
+		return userData;
 	}
 
 }
