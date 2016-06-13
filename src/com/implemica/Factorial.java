@@ -27,8 +27,9 @@ public class Factorial {
 	 *        specified number
 	 */
 	public Factorial(int factorial) {
-		this.factorial = factorial;
-		number = calculationNumber();
+		super();
+		setFactorial(factorial);
+		setNumber(calculationNumber());
 	}
 
 	/**
@@ -255,6 +256,11 @@ public class Factorial {
 	 */
 	private void setMemory(int memory) {
 		this.memory = memory;
+	}
+
+	/** Setter */
+	private void setNumber(String number) {
+		this.number = number;
 	}
 
 }

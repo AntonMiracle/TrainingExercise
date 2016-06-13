@@ -13,24 +13,32 @@ import com.implemica.cities.Cities;
  *
  */
 public class Runner {
+	public static Scanner scn = new Scanner(System.in);
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		/**
+		 * Solutin B. Find cheapest price
+		 */
+		Cities c = new Cities();
+		c.solution();
+//		c.testSolution();// test
 
 		/**
 		 * Solution A. Count correct bracket(s) sequence
 		 */
-//		Brackets.solution();
+		Brackets brk = new Brackets();
+		brk.solution();
+
 		/**
 		 * Solutin C. Count digits of number 100!(100 factorial)
 		 */
-//		Factorial.solution();
+		Factorial.solution();
 
-Cities c = new Cities();
-		
-		
+		scn.close();
+		scn = null;
 	}
 
 }

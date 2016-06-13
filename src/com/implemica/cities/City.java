@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.implemica.Runner;
+
 /**
  * 
  * @author Bondarenko Anton Michailovich
@@ -23,10 +25,9 @@ public class City {
 	private String					name;
 	private Map<Integer, Integer>	transportCost	= new HashMap<Integer, Integer>();
 	private int						numConnectedCity;
-	Scanner							scn				= new Scanner(System.in);
+	
 
-	public City() {
-
+	public City() {		
 	}
 
 	/**
@@ -36,6 +37,7 @@ public class City {
 	 *        city id
 	 */
 	public City(int id) {
+		super();
 		setId(id);
 		createCity();
 	}
@@ -77,15 +79,17 @@ public class City {
 	 */
 	private void createCity() {
 		Cities.print(false, "City name");
-		setName(getScn().next());
+		String name = Runner.scn.next();		
+		setName(name);		
 		Cities.print(false, "Number of connected city");
-		setNumConnectedCity(Integer.parseInt(scn.next()));
-		for (int i = 0; i < numConnectedCity; i++) {
+		int numConnected = Integer.parseInt(Runner.scn.next());
+		setNumConnectedCity(numConnected);		
+		for (int i = 0; i < getNumConnectedCity(); i++) {
 			Cities.print(false, "City ID");
-			String num = getScn().next();
-			Cities.print(false, "Transport cost to " + num);
-			String cost = getScn().next();
-			getTransportCost().put(Integer.valueOf(num), Integer.valueOf(cost));
+			String cityId = Runner.scn.next();			
+			Cities.print(false, "Transport cost to " + cityId);								
+			String cost = Runner.scn.next();			
+			getTransportCost().put(Integer.valueOf(cityId), Integer.valueOf(cost));			
 		}
 
 	}
@@ -132,8 +136,7 @@ public class City {
 	protected void finalize() throws Throwable {
 		super.finalize();
 		setName(null);
-		setTransportCost(null);
-		setScn(null);
+		setTransportCost(null);		
 	}
 
 	/**
@@ -326,16 +329,6 @@ public class City {
 	/** Setter */
 	private void setTransportCost(Map<Integer, Integer> transportCost) {
 		this.transportCost = transportCost;
-	}
-
-	/** Setter */
-	private void setScn(Scanner scn) {
-		this.scn = scn;
-	}
-
-	/** Getter */
-	private Scanner getScn() {
-		return scn;
 	}
 
 }

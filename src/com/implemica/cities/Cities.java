@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
+import com.implemica.Runner;
+
 /**
  * @author Bondarenko Anton Michailovich
  * @version 1.0
@@ -22,12 +24,10 @@ public class Cities {
 	private int				numPath;
 	private List<City>		cities	= new ArrayList<City>();
 	private List<String>	paths	= new ArrayList<String>();
-	Scanner					scn		= new Scanner(System.in);
+	private Scanner	scn;
 
 	public Cities() {
-		solution();
-		// testSolution();
-		finishInput();
+		this.scn = Runner.scn;	 
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class Cities {
 	 * algorithm is open Edsger Wybe Dijkstra. Where graf is shortest transfer
 	 * distance from start to end
 	 */
-	private void solution() {
+	public void solution() {
 		print(true, "INPUT");
 		setNumTests();
 		setNumCities();
@@ -211,7 +211,7 @@ public class Cities {
 	private void setNumTests() {
 		do {
 			Cities.print(false, "Number of tests");
-			setNumTests(scn.nextInt());
+			setNumTests(Integer.valueOf(scn.next()));
 		} while (isOutLimit(getNumTests(), 10));
 	}
 
@@ -230,7 +230,7 @@ public class Cities {
 	/**
 	 * Testing solution, without input data.
 	 */
-	private void testSolution() {
+	public void testSolution() {
 		cities = City.testCity();
 		paths = City.testPaths();
 		System.out.println("-- PATHS --");
@@ -293,13 +293,6 @@ public class Cities {
 		} else {
 			return false;
 		}
-	}
-
-	/**
-	 * Finish input data ans close Scanner
-	 */
-	private final void finishInput() {
-		scn.close();
 	}
 
 	/* @see java.lang.Object#clone() */

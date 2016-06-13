@@ -20,12 +20,14 @@ public class Brackets {
 	private int				numberPairs;
 	private boolean			systemPro;
 	private String			userData;
+	private Scanner			scn;
 
 	/**
 	 * Constructor create one pair of bracket sequence.
 	 */
 	public Brackets() {
-		this(1);
+		setScn(Runner.scn);
+
 	}
 
 	/**
@@ -108,15 +110,14 @@ public class Brackets {
 	 * user input number of pairs. If input data not a number, system automation
 	 * give additional try while input data is not number
 	 */
-	public static void solution() {
-		Scanner scn = new Scanner(System.in);
+	public void solution() {
 		boolean inputPro = true;
 		int number = 0;
 		String title = "----- Enter number of bracket pairs -----";
 		String error = "----- You enter not number -----";
 		do {
 			System.out.println(title);
-			String text = scn.nextLine();
+			String text = scn.next();
 			try {
 				number = Integer.parseInt(text.trim());
 				inputPro = false;
@@ -124,8 +125,7 @@ public class Brackets {
 				System.out.println(error);
 			}
 		} while (inputPro);
-		System.out.println(new Brackets(number).countUniqueVariation());
-		scn.close();
+		System.out.println(new Brackets(number).countUniqueVariation());		
 	}
 
 	/**
@@ -215,6 +215,11 @@ public class Brackets {
 	/** Getter */
 	public String getUserData() {
 		return userData;
+	}
+
+	/** Setter */
+	public void setScn(Scanner scn) {
+		this.scn = scn;
 	}
 
 }
