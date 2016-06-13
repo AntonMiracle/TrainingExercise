@@ -5,6 +5,8 @@ package com.implemica;
 
 import java.util.Scanner;
 
+import com.implemica.cities.Cities;
+
 /**
  * @author Bondarenko Anton Michailovich
  * @version 1.0
@@ -20,12 +22,15 @@ public class Runner {
 		/**
 		 * Solution A. Count correct bracket(s) sequence
 		 */
-		Brackets.solution();
+//		Brackets.solution();
 		/**
 		 * Solutin C. Count digits of number 100!(100 factorial)
 		 */
-		Factorial.solution();
+//		Factorial.solution();
 
+Cities c = new Cities();
+		
+		
 	}
 
 }
